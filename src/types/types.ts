@@ -10,6 +10,7 @@ export interface ISection {
   title: string;
   description: string;
   fields: IField[];
+  open: boolean;
 }
 
 export interface IForm {
