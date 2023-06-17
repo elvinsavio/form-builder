@@ -5,9 +5,17 @@ interface IStyle {
   className?: string;
 }
 export interface IEditorStyle {
-  header: {
-    id?: string;
+  editor: {
     styles?: IStyle;
+  };
+
+  header: {
+    main: {
+      styles: IStyle;
+    };
+    sub: {
+      styles: IStyle;
+    };
   };
 
   input: {

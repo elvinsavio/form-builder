@@ -55,12 +55,8 @@ export default function Editor({ state, setState, styles }: IProps) {
   };
 
   return (
-    <FormContainer>
-      <header
-        id={styles?.header?.id}
-        style={styles?.header?.styles?.style}
-        className={styles?.header?.styles?.className}
-      >
+    <div className={styles?.editor?.styles?.className} style={styles?.editor.styles?.style}>
+      <header style={styles?.header?.main?.styles?.style} className={styles?.header?.main?.styles?.className}>
         {state?.editTitle ? (
           <Input value={state.title} onSave={handleTitleSave} onCancel={toggleTitleEdit} />
         ) : (
@@ -75,7 +71,7 @@ export default function Editor({ state, setState, styles }: IProps) {
         )}
       </header>
 
-      <small style={styles?.header?.styles?.style} className={styles?.header?.styles?.className}>
+      <small style={styles?.header?.sub?.styles?.style} className={styles?.header?.sub?.styles?.className}>
         {state?.editDescription ? (
           <Input value={state?.description} onSave={handleDescriptionSave} onCancel={toggleDescriptionEdit} />
         ) : (
@@ -100,12 +96,8 @@ export default function Editor({ state, setState, styles }: IProps) {
         </SectionContainer>
       ))}
       <AddNewSection onClick={handleAddNewSection} />
-    </FormContainer>
+    </div>
   );
-}
-
-function FormContainer({ children }: { children: ReactNode }) {
-  return <div className="flex flex-col p-1 gap-1 ">{children}</div>;
 }
 
 function AddNewSection({ onClick }: { onClick: () => void }) {

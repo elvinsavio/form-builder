@@ -2,6 +2,8 @@ import { ReactNode, useState } from "react";
 import Editor from "./editor/editor";
 import { IForm } from "./types/types";
 import { editorStyle } from "./style/editor";
+import Preview from "./preview/preview";
+import { previewStyle } from "./style/preview";
 
 export default function App() {
   const [form, setForm] = useState<IForm>({
@@ -21,6 +23,7 @@ export default function App() {
 
       <Container>
         <Header>Preview</Header>
+        <Preview styles={previewStyle} state={form} setState={setForm} />
       </Container>
     </AppContainer>
   );
