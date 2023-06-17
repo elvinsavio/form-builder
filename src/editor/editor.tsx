@@ -5,13 +5,15 @@ import { FiEdit2 } from "react-icons/fi";
 import { IForm } from "../types/types";
 import { ReactNode } from "react";
 import Icon from "../components/icon";
+import { IEditorStyle } from "../style/editor";
 
 interface IProps {
   state: IForm;
   setState: (state: IForm) => void;
+  styles: IEditorStyle;
 }
 
-export default function Editor({ state, setState }: IProps) {
+export default function Editor({ state, setState, styles }: IProps) {
   const handleAddNewSection = () => {
     const tempState = { ...state };
     tempState.sections = tempState.sections || [];
@@ -24,13 +26,26 @@ export default function Editor({ state, setState }: IProps) {
     setState(tempState);
   };
 
+  const toggleTitleEdit = () => {
+    const tempState = { ...state };
+    tempState.editTitle = !tempState.editTitle;
+    setState(tempState);
+  };
+
+  const toggleDescriptionEdit = () => {
+    const tempState = { ...state };
+    tempState.editDescription = !tempState.editDescription;
+    setState(tempState);
+  };
+
   return (
     <FormContainer>
-      <header className=" text-xl flex items-center justify-center gap-1">
-        {state.title} <Icon icon={<FiEdit2 className="text-sm" />} />
+      <header id={styles.header?.id} style={styles?.header?.styles} className={styles?.header?.className}>
+        {state.title} {state.editTitle ? "edit" : "not edit"}
+        <Icon onClick={toggleTitleEdit} icon={<FiEdit2 className="text-sm" />} />
       </header>
       <small className="flex items-center justify-center gap-1  mb-1 border-b pb-1 border-b-slate-600">
-        {state.description} <Icon icon={<FiEdit2 className="text-xs" />} />
+        {state.description} <Icon onClick={toggleDescriptionEdit} icon={<FiEdit2 className="text-xs" />} />
       </small>
       {state.sections?.map((section, index) => (
         <SectionContainer key={index}>

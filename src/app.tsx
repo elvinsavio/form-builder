@@ -1,11 +1,14 @@
 import { ReactNode, useState } from "react";
 import Editor from "./editor/editor";
 import { IForm } from "./types/types";
+import { editorStyle } from "./style/editor";
 
 export default function App() {
   const [form, setForm] = useState<IForm>({
     title: "New Form",
+    editTitle: true,
     description: "New Form Description",
+    editDescription: true,
     sections: [],
   });
 
@@ -13,7 +16,7 @@ export default function App() {
     <AppContainer>
       <Container>
         <Header>Editor</Header>
-        <Editor state={form} setState={setForm} />
+        <Editor styles={editorStyle} state={form} setState={setForm} />
       </Container>
 
       <Container>

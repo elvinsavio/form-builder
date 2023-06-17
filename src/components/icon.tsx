@@ -1,9 +1,17 @@
 import { ReactNode } from "react";
+import { editorStyle } from "../style/editor";
 
-export default function Icon({ icon, className }: { icon: ReactNode; className?: string }) {
+interface IProps {
+  icon: ReactNode;
+  className?: string;
+  onClick: () => void;
+}
+export default function Icon({ icon, className, onClick }: IProps) {
   return (
     <div
-      className={` hover:text-slate-100 hover:bg-slate-500 hover:bg-opacity-100 rounded cursor-pointer p-1 text-center ${className}`}
+      onClick={onClick}
+      className={`${editorStyle.icons.edit.className}  ${className}`}
+      style={editorStyle.icons.edit.styles}
     >
       {icon}
     </div>

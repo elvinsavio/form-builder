@@ -15,6 +15,8 @@ export interface ISection {
 
 export interface IForm {
   title: string;
+  editTitle: boolean;
   description: string;
+  editDescription: boolean;
   sections: ISection[];
 }
