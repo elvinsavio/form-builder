@@ -5,7 +5,7 @@ import { FiEdit2 } from "react-icons/fi";
 import { IForm } from "../types/types";
 import { ReactNode } from "react";
 import Icon from "../components/icon";
-import { IEditorStyle } from "../style/editor";
+import { IEditorStyle, editorStyle } from "../style/editor";
 
 interface IProps {
   state: IForm;
@@ -40,10 +40,15 @@ export default function Editor({ state, setState, styles }: IProps) {
 
   return (
     <FormContainer>
-      <header id={styles.header?.id} style={styles?.header?.styles} className={styles?.header?.className}>
+      <header
+        id={styles.header?.id}
+        style={styles?.header?.styles?.style}
+        className={styles?.header?.styles?.className}
+      >
         {state.title} {state.editTitle ? "edit" : "not edit"}
-        <Icon onClick={toggleTitleEdit} icon={<FiEdit2 className="text-sm" />} />
+        <Icon onClick={toggleTitleEdit} icon={<FiEdit2 className={editorStyle.icons.edit.styles?.className} />} />
       </header>
+
       <small className="flex items-center justify-center gap-1  mb-1 border-b pb-1 border-b-slate-600">
         {state.description} <Icon onClick={toggleDescriptionEdit} icon={<FiEdit2 className="text-xs" />} />
       </small>
