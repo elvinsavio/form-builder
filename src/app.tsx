@@ -6,9 +6,9 @@ import { editorStyle } from "./style/editor";
 export default function App() {
   const [form, setForm] = useState<IForm>({
     title: "New Form",
-    editTitle: true,
+    editTitle: false,
     description: "New Form Description",
-    editDescription: true,
+    editDescription: false,
     sections: [],
   });
 

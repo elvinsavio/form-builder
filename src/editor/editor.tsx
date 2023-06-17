@@ -5,7 +5,9 @@ import { FiEdit2 } from "react-icons/fi";
 import { IForm } from "../types/types";
 import { ReactNode } from "react";
 import Icon from "../components/icon";
-import { IEditorStyle, editorStyle } from "../style/editor";
+import { editorStyle } from "../style/editor";
+import Input from "../components/input";
+import { IEditorStyle } from "../style/editor.type";
 
 interface IProps {
   state: IForm;
@@ -32,25 +34,60 @@ export default function Editor({ state, setState, styles }: IProps) {
     setState(tempState);
   };
 
+  const handleTitleSave = (value: string) => {
+    const tempState = { ...state };
+    tempState.title = value;
+    tempState.editTitle = false;
+    setState(tempState);
+  };
+
   const toggleDescriptionEdit = () => {
     const tempState = { ...state };
     tempState.editDescription = !tempState.editDescription;
     setState(tempState);
   };
 
+  const handleDescriptionSave = (value: string) => {
+    const tempState = { ...state };
+    tempState.description = value;
+    tempState.editDescription = false;
+    setState(tempState);
+  };
+
   return (
     <FormContainer>
       <header
-        id={styles.header?.id}
+        id={styles?.header?.id}
         style={styles?.header?.styles?.style}
         className={styles?.header?.styles?.className}
       >
-        {state.title} {state.editTitle ? "edit" : "not edit"}
-        <Icon onClick={toggleTitleEdit} icon={<FiEdit2 className={editorStyle.icons.edit.styles?.className} />} />
+        {state?.editTitle ? (
+          <Input value={state.title} onSave={handleTitleSave} onCancel={toggleTitleEdit} />
+        ) : (
+          <>
+            {state?.title}
+            <Icon
+              onClick={toggleTitleEdit}
+              className={editorStyle?.icons?.edit?.styles?.className}
+              icon={<FiEdit2 />}
+            />
+          </>
+        )}
       </header>
 
-      <small className="flex items-center justify-center gap-1  mb-1 border-b pb-1 border-b-slate-600">
-        {state.description} <Icon onClick={toggleDescriptionEdit} icon={<FiEdit2 className="text-xs" />} />
+      <small style={styles?.header?.styles?.style} className={styles?.header?.styles?.className}>
+        {state?.editDescription ? (
+          <Input value={state?.description} onSave={handleDescriptionSave} onCancel={toggleDescriptionEdit} />
+        ) : (
+          <>
+            {state?.description}
+            <Icon
+              onClick={toggleDescriptionEdit}
+              className={editorStyle?.icons?.edit?.styles?.className}
+              icon={<FiEdit2 />}
+            />
+          </>
+        )}
       </small>
       {state.sections?.map((section, index) => (
         <SectionContainer key={index}>
