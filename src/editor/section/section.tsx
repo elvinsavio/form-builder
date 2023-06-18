@@ -49,13 +49,11 @@ export function Section<T extends BaseItem>({ items, onChange, renderItem }: Pro
       }}
     >
       <SortableContext items={items}>
-        <ul role="application">
-          {items.map((item, index) => (
-            <React.Fragment key={item.id}>{renderItem(item, index)}</React.Fragment>
-          ))}
-        </ul>
+        {items.map((item, index) => (
+          <React.Fragment key={item.id}>{renderItem(item, index)}</React.Fragment>
+        ))}
       </SortableContext>
-      <DNDOverlay>{activeItem ? renderItem(activeItem, 9999999) : null}</DNDOverlay>
+      <DNDOverlay>{activeItem ? renderItem(activeItem, -1) : null}</DNDOverlay>
     </DndContext>
   );
 }

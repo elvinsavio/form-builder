@@ -24,6 +24,8 @@ export default function SectionHeader({ title, edit, toggleEdit, onSave, onDelet
         <Input value={title} onSave={onSave} onCancel={toggleEdit} />
       ) : (
         <>
+          {children}
+
           <div
             className={editorStyle?.section?.header?.title?.styles?.className}
             style={editorStyle?.section?.header?.title?.styles?.style}
@@ -45,7 +47,6 @@ export default function SectionHeader({ title, edit, toggleEdit, onSave, onDelet
               style={editorStyle?.section?.header?.editIcon?.styles?.style}
               icon={<FiEdit2 />}
             />
-            {children}
           </div>
         </>
       )}

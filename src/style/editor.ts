@@ -74,7 +74,7 @@ export const editorStyle: IEditorStyle = {
       container: {
         styles: {
           style: {},
-          className: "flex justify-between items-center border-b-slate-200 border-b pb-1 mb-1",
+          className: "flex justify-between items-start border-b-slate-200 border-b pb-1 mb-1",
         },
       },
       title: {

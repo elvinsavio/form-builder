@@ -37,7 +37,7 @@ export function DNDItem({ children, id }: PropsWithChildren<Props>) {
     [attributes, listeners, setActivatorNodeRef]
   );
   const style: CSSProperties = {
-    opacity: isDragging ? 0.4 : undefined,
+    opacity: isDragging ? 0 : undefined,
     transform: CSS.Translate.toString(transform),
     transition,
     ...editorStyle?.section?.container?.styles?.style,
@@ -56,8 +56,8 @@ export function DragHandle() {
   const { attributes, listeners, ref } = useContext(DNDItemContext);
 
   return (
-    <button {...attributes} {...listeners} ref={ref}>
+    <span {...attributes} {...listeners} ref={ref}>
       <Icon icon={<MdDragIndicator />} />
-    </button>
+    </span>
   );
 }
