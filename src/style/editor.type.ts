@@ -62,4 +62,8 @@ export interface IEditorStyle {
       };
     };
   };
+
+  tooltip?: {
+    styles?: IStyle;
+  };
 }

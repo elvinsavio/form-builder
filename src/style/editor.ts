@@ -97,4 +97,11 @@ export const editorStyle: IEditorStyle = {
       },
     },
   },
+
+  tooltip: {
+    styles: {
+      style: {},
+      className: "tooltip rounded shadow-lg p-1 bg-gray-100 text-slate-900 -mt-10",
+    },
+  },
 };

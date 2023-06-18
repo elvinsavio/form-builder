@@ -157,7 +157,13 @@ function EditorHeader({ styles, edit, title, toggleTitleEdit, handleTitleSave }:
       ) : (
         <>
           {title}
-          <Icon onClick={toggleTitleEdit} className={editorStyle?.icons?.edit?.styles?.className} icon={<FiEdit2 />} />
+          <Icon
+            id="header-title"
+            tooltip="Edit title"
+            onClick={toggleTitleEdit}
+            className={editorStyle?.icons?.edit?.styles?.className}
+            icon={<FiEdit2 />}
+          />
         </>
       )}
     </header>
