@@ -1,9 +1,7 @@
 import { CSSProperties } from "react";
 
 interface IStyle {
-  style?: {
-    [x: string]: CSSProperties;
-  };
+  style?: CSSProperties;
   className?: string;
 }
 export interface IEditorStyle {
@@ -53,7 +51,13 @@ export interface IEditorStyle {
       container?: {
         styles?: IStyle;
       };
+      title?: {
+        styles?: IStyle;
+      };
       deleteIcon?: {
+        styles?: IStyle;
+      };
+      editIcon?: {
         styles?: IStyle;
       };
     };

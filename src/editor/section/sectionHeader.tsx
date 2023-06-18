@@ -24,7 +24,12 @@ export default function SectionHeader({ title, edit, toggleEdit, onSave, onDelet
         <Input value={title} onSave={onSave} onCancel={toggleEdit} />
       ) : (
         <>
-          <div>{title}</div>
+          <div
+            className={editorStyle?.section?.header?.title?.styles?.className}
+            style={editorStyle?.section?.header?.title?.styles?.style}
+          >
+            {title}
+          </div>
           <div className="flex">
             <Icon
               onClick={onDelete}
@@ -32,7 +37,12 @@ export default function SectionHeader({ title, edit, toggleEdit, onSave, onDelet
               style={editorStyle?.section?.header?.deleteIcon?.styles?.style}
               icon={<MdDelete />}
             />
-            <Icon onClick={toggleEdit} className="hover:bg-slate-500" icon={<FiEdit2 />} />
+            <Icon
+              onClick={toggleEdit}
+              className={editorStyle?.section?.header?.editIcon?.styles?.className}
+              style={editorStyle?.section?.header?.editIcon?.styles?.style}
+              icon={<FiEdit2 />}
+            />
             {children}
           </div>
         </>

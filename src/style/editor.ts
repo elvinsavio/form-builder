@@ -77,10 +77,22 @@ export const editorStyle: IEditorStyle = {
           className: "flex justify-between items-center border-b-slate-200 border-b pb-1 mb-1",
         },
       },
+      title: {
+        styles: {
+          style: {},
+          className: "text-lg font-bold",
+        },
+      },
       deleteIcon: {
         styles: {
           style: {},
           className: "text-red-600 hover:bg-red-500 hover:text-white",
+        },
+      },
+      editIcon: {
+        styles: {
+          style: {},
+          className: "text-white hover:bg-slate-500 hover:text-white",
         },
       },
     },
