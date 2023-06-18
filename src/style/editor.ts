@@ -51,7 +51,7 @@ export const editorStyle: IEditorStyle = {
     common: {
       styles: {
         style: {},
-        className: "p-1 text-center cursor-pointer rounded",
+        className: "p-1 text-center cursor-pointer rounded has-tooltip",
       },
     },
     edit: {

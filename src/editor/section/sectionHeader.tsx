@@ -33,12 +33,14 @@ export default function SectionHeader({ title, edit, toggleEdit, onSave, onDelet
           <div className="flex">
             <Icon
               onClick={onDelete}
+              tooltip="Delete section"
               className={editorStyle?.section?.header?.deleteIcon?.styles?.className}
               style={editorStyle?.section?.header?.deleteIcon?.styles?.style}
               icon={<MdDelete />}
             />
             <Icon
               onClick={toggleEdit}
+              tooltip="Edit section"
               className={editorStyle?.section?.header?.editIcon?.styles?.className}
               style={editorStyle?.section?.header?.editIcon?.styles?.style}
               icon={<FiEdit2 />}

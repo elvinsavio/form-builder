@@ -15,7 +15,7 @@ export default function Icon({ id, tooltip, icon, className, onClick, style }: I
       id={id}
       type="button"
       onClick={onClick}
-      className={`${editorStyle?.icons?.common?.styles?.className}  ${className} has-tooltip`}
+      className={`${editorStyle?.icons?.common?.styles?.className}  ${className}`}
       style={{ ...editorStyle?.icons?.common?.styles?.style, ...style }}
     >
       {icon}

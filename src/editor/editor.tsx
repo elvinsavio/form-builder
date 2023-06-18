@@ -192,6 +192,7 @@ function EditorSubHeader({
         <>
           {description}
           <Icon
+            tooltip="Edit description"
             onClick={toggleDescriptionEdit}
             className={editorStyle?.icons?.edit?.styles?.className}
             icon={<FiEdit2 />}
