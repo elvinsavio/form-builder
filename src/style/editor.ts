@@ -51,14 +51,14 @@ export const editorStyle: IEditorStyle = {
     common: {
       styles: {
         style: {},
-        className: "p-1 text-center",
+        className: "p-1 text-center cursor-pointer",
       },
     },
     edit: {
       id: "editor-edit",
       styles: {
         style: {},
-        className: "text-sm hover:text-slate-100 hover:bg-slate-500 hover:bg-opacity-100 rounded cursor-pointer",
+        className: "text-sm hover:text-slate-100 hover:bg-slate-500 hover:bg-opacity-100 ",
       },
     },
   },

@@ -68,6 +68,25 @@ export default function Editor({ state, setState, styles }: IProps) {
     setState(tempState);
   };
 
+  const handleSectionDelete = (sectionIndex: number) => {
+    const tempState = { ...state };
+    tempState.sections?.splice(sectionIndex, 1);
+    setState(tempState);
+  };
+
+  const toggleSectionTitleEdit = (sectionIndex: number) => {
+    const tempState = { ...state };
+    tempState.sections[sectionIndex].editTitle = !tempState.sections[sectionIndex].editTitle;
+    setState(tempState);
+  };
+
+  const handleSectionTitleSave = (sectionIndex: number, value: string) => {
+    const tempState = { ...state };
+    tempState.sections[sectionIndex].title = value;
+    tempState.sections[sectionIndex].editTitle = false;
+    setState(tempState);
+  };
+
   return (
     <div className={styles?.editor?.styles?.className} style={styles?.editor.styles?.style}>
       <EditorHeader
@@ -94,9 +113,9 @@ export default function Editor({ state, setState, styles }: IProps) {
             <Section.Header
               title={item?.title}
               edit={item?.editTitle}
-              onDelete={() => 3}
-              onSave={() => 3}
-              toggleEdit={() => 5}
+              onDelete={() => handleSectionDelete(index)}
+              onSave={(value) => handleSectionTitleSave(index, value)}
+              toggleEdit={() => toggleSectionTitleEdit(index)}
             >
               <Section.DragHandle />
             </Section.Header>

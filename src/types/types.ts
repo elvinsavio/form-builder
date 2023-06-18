@@ -9,6 +9,7 @@ export interface IField {
 export interface ISection {
   id: string;
   title: string;
+  editTitle: boolean;
   fields: IField[];
   open: boolean;
 }

@@ -5,6 +5,7 @@ import type { Active, UniqueIdentifier } from "@dnd-kit/core";
 import { SortableContext, arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import { DNDItem, DragHandle } from "../../components/dnd/dndItem";
 import { DNDOverlay } from "../../components/dnd/dndOverlay";
+import SectionHeader from "./sectionHeader";
 
 // import { DragHandle, SortableItem, SortableOverlay } from "./components";
 
@@ -15,7 +16,7 @@ interface BaseItem {
 interface Props<T extends BaseItem> {
   items: T[];
   onChange(items: T[]): void;
-  renderItem(item: T): ReactNode;
+  renderItem(item: T, index: number): ReactNode;
 }
 
 export function Section<T extends BaseItem>({ items, onChange, renderItem }: Props<T>) {
@@ -49,15 +50,16 @@ export function Section<T extends BaseItem>({ items, onChange, renderItem }: Pro
     >
       <SortableContext items={items}>
         <ul role="application">
-          {items.map((item) => (
-            <React.Fragment key={item.id}>{renderItem(item)}</React.Fragment>
+          {items.map((item, index) => (
+            <React.Fragment key={item.id}>{renderItem(item, index)}</React.Fragment>
           ))}
         </ul>
       </SortableContext>
-      <DNDOverlay>{activeItem ? renderItem(activeItem) : null}</DNDOverlay>
+      <DNDOverlay>{activeItem ? renderItem(activeItem, 9999999) : null}</DNDOverlay>
     </DndContext>
   );
 }
 
 Section.Item = DNDItem;
 Section.DragHandle = DragHandle;
+Section.Header = SectionHeader;
