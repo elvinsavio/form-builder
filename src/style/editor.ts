@@ -51,7 +51,7 @@ export const editorStyle: IEditorStyle = {
     common: {
       styles: {
         style: {},
-        className: "p-1 text-center cursor-pointer",
+        className: "p-1 text-center cursor-pointer rounded",
       },
     },
     edit: {
@@ -59,6 +59,29 @@ export const editorStyle: IEditorStyle = {
       styles: {
         style: {},
         className: "text-sm hover:text-slate-100 hover:bg-slate-500 hover:bg-opacity-100 ",
+      },
+    },
+  },
+
+  section: {
+    container: {
+      styles: {
+        style: {},
+        className: "list-none px-2 py-1 border m-1 rounded",
+      },
+    },
+    header: {
+      container: {
+        styles: {
+          style: {},
+          className: "flex justify-between items-center border-b-slate-200 border-b pb-1 mb-1",
+        },
+      },
+      deleteIcon: {
+        styles: {
+          style: {},
+          className: "text-red-600 hover:bg-red-500 hover:text-white",
+        },
       },
     },
   },
