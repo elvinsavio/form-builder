@@ -32,7 +32,7 @@ export default function Input({ value, onSave, onCancel }: IProps) {
         {editorStyle?.input?.commonSave?.useIcon ? <Icon icon={<MdDone />} /> : "Save"}
       </button>
       <button
-        className={editorStyle?.input?.commonCancel.styles?.className}
+        className={editorStyle?.input?.commonCancel?.styles?.className}
         style={editorStyle?.input?.commonCancel?.styles?.style}
         onClick={onCancel}
       >

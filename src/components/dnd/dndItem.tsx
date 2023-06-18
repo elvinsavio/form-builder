@@ -5,6 +5,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import Icon from "../icon";
 import { MdDragIndicator } from "react-icons/md";
+import { editorStyle } from "../../style/editor";
 
 interface Props {
   id: UniqueIdentifier;
@@ -39,11 +40,12 @@ export function DNDItem({ children, id }: PropsWithChildren<Props>) {
     opacity: isDragging ? 0.4 : undefined,
     transform: CSS.Translate.toString(transform),
     transition,
+    ...editorStyle?.section?.container?.styles?.style,
   };
 
   return (
     <DNDItemContext.Provider value={context}>
-      <li className="list-none px-2 py-1 border m-1 rounded" ref={setNodeRef} style={style}>
+      <li className={editorStyle?.section?.container?.styles?.className} ref={setNodeRef} style={style}>
         {children}
       </li>
     </DNDItemContext.Provider>
@@ -54,7 +56,7 @@ export function DragHandle() {
   const { attributes, listeners, ref } = useContext(DNDItemContext);
 
   return (
-    <button className="text-violet-200" {...attributes} {...listeners} ref={ref}>
+    <button {...attributes} {...listeners} ref={ref}>
       <Icon icon={<MdDragIndicator />} />
     </button>
   );

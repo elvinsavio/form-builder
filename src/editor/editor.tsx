@@ -7,7 +7,6 @@ import { editorStyle } from "../style/editor";
 import Input from "../components/input";
 import { IEditorStyle } from "../style/editor.type";
 import { Section } from "./section/section";
-import SectionHeader from "./section/sectionHeader";
 
 interface IProps {
   state: IForm;
@@ -88,7 +87,7 @@ export default function Editor({ state, setState, styles }: IProps) {
   };
 
   return (
-    <div className={styles?.editor?.styles?.className} style={styles?.editor.styles?.style}>
+    <div className={styles?.editor?.styles?.className} style={styles?.editor?.styles?.style}>
       <EditorHeader
         styles={styles}
         edit={state?.editTitle}
